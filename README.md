@@ -76,3 +76,11 @@ npx create-react-app netflix-gpt
 create-react-app uses webpack
 
 lets use tailwind here so setup tailwind
+
+from current or outside file need to access the inside then use ./
+
+for app.js to access src and components so in app.js use ./ and folder names and file name
+
+parallel file jsut use ./filename
+
+if inside file need to access outside, then use ../
