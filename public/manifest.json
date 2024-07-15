@@ -1,0 +1,784 @@
+{
+  "trafficSplitterRules": [
+    {
+      "rule": "1003",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": ["11234567890"]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "imi",
+          "subAccountInfo": { "subAccountIdentifier": "glb" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "1007",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "eventInfo", "values": ["0~0~b2b~spark-shopper"] }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "1002",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": ["18333541313", "18884713064", "28165420824", "18165420824"]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        },
+        {
+          "bucketId": "1",
+          "providerName": "twilio",
+          "subAccountInfo": { "subAccountIdentifier": "us" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "300",
+      "bucketStrategy": "deterministic",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "segment", "values": ["oaoh"] },
+        {
+          "predicateName": "countryIsoCode",
+          "values": ["CA", "CO", "MX", "CL"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~oms~subs-nil-pick",
+            "0~0~oms~ship-confirmation",
+            "0~0~oms~ready-for-pickup",
+            "0~0~oms~pickup-reminder-first",
+            "0~0~oms~pickup-reminder-final",
+            "0~0~oms~cancellation-confirmation",
+            "0~0~oms~order-enroute",
+            "0~0~oms~customer-choice-prompt",
+            "0~0~oms~adjustment",
+            "0~0~bakery~cancellation-confirmation",
+            "0~0~bakery-instore~cancellation-confirmation",
+            "0~0~bakery~order-confirmation",
+            "0~0~bakery-instore~order-confirmation",
+            "0~0~bakery~ready-for-pickup",
+            "0~0~bakery-instore~ready-for-pickup",
+            "0~0~photo~ready-for-pickup",
+            "0~0~oms~pickup-delay",
+            "0~0~oms~order-date-update",
+            "0~0~oms~delivery-delay",
+            "0~0~oms~pickup-reminder",
+            "0~0~oms~edd-change",
+            "0~0~oms~fulfillment-delay",
+            "0~0~oms~order-amend-confirmation",
+            "0~0~oms~predicted-edd-update",
+            "0~0~oms~reminder-notification",
+            "0~0~oms~convert-pickup-confirmation",
+            "0~0~gif~spark-shopper",
+            "0~0~RAP~return-attempt-call-customer-care",
+            "0~0~oms~shipment-arrived",
+            "0~0~oms~driver-tip-confirmation",
+            "0~0~oms~driver-tip-refund",
+            "0~0~oms~driver-return",
+            "0~0~RAP~return-pickup-reminder",
+            "0~0~RAP~return-pickup-started",
+            "0~0~RAP~return-initiated",
+            "0~0~oms~delivery-confirmation",
+            "0~0~RAP~refund-issued",
+            "0~0~acc-instore~acc-service",
+            "0~0~acc-instore~reminder-notification",
+            "0~0~acc-instore~order-amend-confirmation",
+            "0~0~acc-instore~order-confirmation",
+            "0~0~acc-instore~cancellation-confirmation",
+            "0~0~RAP~lld-arrive",
+            "0~0~RAP~return-cancellation",
+            "0~0~oms~choice-to-accept"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "304",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "segment", "values": ["oaoh"] },
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": ["14176471497", "4176471497"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~oms~refund-issued",
+            "0~0~oms~return-attempt-call-customer-care",
+            "0~0~oms~shipment-arrived",
+            "0~0~oms~reminder-notification",
+            "0~0~oms~pickup-delay",
+            "0~0~oms~order-date-update",
+            "0~0~oms~adjustment",
+            "0~0~oms~delivery-delay",
+            "0~0~oms~driver-return",
+            "0~0~oms~return-initiated",
+            "0~0~oms~subs-nil-pick",
+            "0~0~oms~ship-confirmation",
+            "0~0~oms~predicted-edd-update",
+            "0~0~oms~ready-for-pickup",
+            "0~0~oms~pickup-reminder-first",
+            "0~0~oms~pickup-reminder-final",
+            "0~0~oms~cancellation-confirmation",
+            "0~0~oms~delivery-confirmation",
+            "0~0~oms~driver-tip-confirmation",
+            "0~0~oms~driver-tip-refund",
+            "0~0~oms~edd-change",
+            "0~0~oms~fulfillment-delay",
+            "0~0~oms~order-amend-confirmation",
+            "0~0~oms~order-enroute",
+            "0~0~oms~customer-choice-prompt",
+            "0~0~RAP~return-pickup-started",
+            "0~0~RAP~return-pickup-reminder"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "imi",
+          "subAccountInfo": { "subAccountIdentifier": "glb" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "305",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "segment", "values": ["oaoh"] },
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": ["8165420824", "18165420824"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~oms~refund-issued",
+            "0~0~oms~return-attempt-call-customer-care",
+            "0~0~oms~shipment-arrived",
+            "0~0~oms~reminder-notification",
+            "0~0~oms~pickup-delay",
+            "0~0~oms~order-date-update",
+            "0~0~oms~adjustment",
+            "0~0~oms~delivery-delay",
+            "0~0~oms~driver-return",
+            "0~0~oms~return-initiated",
+            "0~0~oms~ready-for-pickup",
+            "0~0~oms~subs-nil-pick",
+            "0~0~oms~ship-confirmation",
+            "0~0~oms~predicted-edd-update",
+            "0~0~oms~pickup-reminder-first",
+            "0~0~oms~pickup-reminder-final",
+            "0~0~oms~cancellation-confirmation",
+            "0~0~oms~order-confirmation",
+            "0~0~oms~delivery-confirmation",
+            "0~0~oms~driver-tip-confirmation",
+            "0~0~oms~driver-tip-refund",
+            "0~0~oms~edd-change",
+            "0~0~oms~fulfillment-delay",
+            "0~0~oms~order-amend-confirmation",
+            "0~0~oms~order-enroute",
+            "0~0~oms~customer-choice-prompt",
+            "0~0~RAP~return-pickup-started",
+            "0~0~RAP~return-pickup-reminder",
+            "0~0~RAP~return-initiated",
+            "0~0~RAP~refund-issued",
+            "0~0~RAP~return-attempt-call-customer-care",
+            "0~0~gif~spark-shopper",
+            "0~0~oms~convert-pickup-confirmation",
+            "0~0~hermes~bulk-tools~order-related",
+            "0~0~hermes~bulk-tools~generic",
+            "0~0~hermes~bulk-comms-event-2",
+            "0~0~hermes~bulk-comms-test-event"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 0,
+          "failoverRuleId": "1001"
+        },
+        {
+          "bucketId": "1",
+          "providerName": "twilio",
+          "subAccountInfo": { "subAccountIdentifier": "us" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        },
+        {
+          "bucketId": "2",
+          "providerName": "openmarket",
+          "subAccountInfo": { "subAccountIdentifier": "walmart~glass" },
+          "weightage": 0,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "315",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": ["8165420824", "18165420824"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~hermes~wcp-3",
+            "0~0~hermes~order-confirmation",
+            "0~0~hermes~rx-order-confirmation"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "1",
+          "providerName": "twilio",
+          "subAccountInfo": { "subAccountIdentifier": "us" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "201",
+      "enabled": "true",
+      "predicates": [{ "predicateName": "tenantId", "values": ["5"] }],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "openmarket",
+          "subAccountInfo": { "subAccountIdentifier": "uk" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "316",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "countryIsoCode",
+          "values": ["CA", "CO", "MX", "CL"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": ["0~10001~esp~order-workflow"]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~otp" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "400",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "countryIsoCode",
+          "values": ["CA", "CO", "MX", "CL"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~cph~checkout-with-me-ereceipt",
+            "0~0~ca~identity-verification-code",
+            "0~0~ca~wmpay-passcode",
+            "0~0~cph~checkout-with-me-ereceipt",
+            "0~0~yms~trailer-unload-complete",
+            "0~60~warp~device-upgrade-passcode",
+            "2~0~sams~two-factor-authentication",
+            "0~0~b2b~identity-verification-code",
+            "0~0~cph~ereceipt-digital-link",
+            "0~0~ca~one-default-confirmation"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~otp" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "402",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": ["1671", "671", "809", "1809", "829", "1829", "849", "1849"]
+        },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~cph~checkout-with-me-ereceipt",
+            "0~0~ca~identity-verification-code",
+            "0~0~ca~wmpay-passcode",
+            "0~0~cph~checkout-with-me-ereceipt",
+            "0~0~yms~trailer-unload-complete",
+            "0~60~warp~device-upgrade-passcode",
+            "2~0~sams~two-factor-authentication",
+            "0~0~b2b~identity-verification-code",
+            "0~0~cph~ereceipt-digital-link",
+            "0~0~ca~one-default-confirmation"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "imi",
+          "subAccountInfo": { "subAccountIdentifier": "glb" },
+          "weightage": 1
+        },
+        {
+          "bucketId": "1",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~us" },
+          "weightage": 9
+        }
+      ]
+    },
+    {
+      "rule": "403",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "recipientId",
+          "operator": "startsWith",
+          "values": [
+            "1671",
+            "671",
+            "809",
+            "1809",
+            "829",
+            "1829",
+            "849",
+            "816",
+            "1849"
+          ]
+        },
+        { "predicateName": "segment", "values": ["oaoh"] },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~oms~subs-nil-pick",
+            "0~0~oms~ship-confirmation",
+            "0~0~oms~ready-for-pickup",
+            "0~0~oms~pickup-reminder-first",
+            "0~0~oms~pickup-reminder-final",
+            "0~0~oms~cancellation-confirmation",
+            "0~0~oms~order-enroute",
+            "0~0~oms~customer-choice-prompt",
+            "0~0~oms~adjustment",
+            "0~0~bakery~cancellation-confirmation",
+            "0~0~bakery-instore~cancellation-confirmation",
+            "0~0~bakery~order-confirmation",
+            "0~0~bakery-instore~order-confirmation",
+            "0~0~bakery~ready-for-pickup",
+            "0~0~bakery-instore~ready-for-pickup",
+            "0~0~photo~ready-for-pickup",
+            "0~0~oms~pickup-delay",
+            "0~0~oms~order-date-update",
+            "0~0~oms~delivery-delay",
+            "0~0~oms~pickup-reminder",
+            "0~0~oms~edd-change",
+            "0~0~oms~fulfillment-delay",
+            "0~0~oms~order-amend-confirmation",
+            "0~0~oms~predicted-edd-update",
+            "0~0~oms~reminder-notification",
+            "0~0~oms~convert-pickup-confirmation",
+            "0~0~gif~spark-shopper",
+            "0~0~RAP~return-attempt-call-customer-care",
+            "0~0~oms~shipment-arrived",
+            "0~0~oms~driver-tip-confirmation",
+            "0~0~oms~driver-tip-refund",
+            "0~0~oms~driver-return",
+            "0~0~RAP~return-pickup-reminder",
+            "0~0~RAP~return-pickup-started",
+            "0~0~RAP~return-initiated",
+            "0~0~oms~delivery-confirmation",
+            "0~0~RAP~refund-issued",
+            "0~0~acc-instore~acc-service",
+            "0~0~acc-instore~reminder-notification",
+            "0~0~acc-instore~cancellation-confirmation"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "imi",
+          "subAccountInfo": { "subAccountIdentifier": "glb" },
+          "weightage": 1
+        },
+        {
+          "bucketId": "1",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 8
+        },
+        {
+          "bucketId": "2",
+          "providerName": "twilio",
+          "subAccountInfo": { "subAccountIdentifier": "us" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "301",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~9001~us-onsite-events~ybm_sms",
+            "0~0~cph~checkout-with-me-ereceipt",
+            "0~0~ca~wmpay-passcode",
+            "0~0~yms~trailer-unload-complete",
+            "0~60~warp~device-upgrade-passcode",
+            "2~0~sams~new-member-treasure-hunt",
+            "3~3~samsclub~d2h-passcode",
+            "2~0~sams~two-factor-authentication",
+            "0~0~hermes~sms-demo",
+            "0~0~b2b~identity-verification-code",
+            "0~0~ca~identity-verification-code",
+            "0~0~oms~choice-to-accept",
+            "0~0~wplus-membership~instant-membership",
+            "0~0~wplus-membership~payment-pre-auth-failed",
+            "0~0~partner-services~stepup-cf-flow"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~us" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "303",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "segment", "values": ["oaoh"] },
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~oms~refund-issued",
+            "0~0~oms~return-attempt-call-customer-care",
+            "0~0~oms~reminder-notification",
+            "0~0~acc-instore~order-amend-confirmation",
+            "0~0~oms~pickup-delay",
+            "0~0~oms~order-date-update",
+            "0~0~oms~adjustment",
+            "0~0~oms~delivery-delay",
+            "0~0~oms~driver-return",
+            "0~0~oms~return-initiated",
+            "0~0~oms~subs-nil-pick",
+            "0~0~oms~ship-confirmation",
+            "0~0~oms~predicted-edd-update",
+            "0~0~oms~pickup-reminder-first",
+            "0~0~oms~pickup-reminder-final",
+            "0~0~oms~cancellation-confirmation",
+            "0~0~oms~delivery-confirmation",
+            "0~0~oms~driver-tip-confirmation",
+            "0~0~oms~driver-tip-refund",
+            "0~0~oms~edd-change",
+            "0~0~oms~fulfillment-delay",
+            "0~0~oms~order-amend-confirmation",
+            "0~0~oms~order-enroute",
+            "0~0~bakery~order-confirmation",
+            "0~0~bakery~cancellation-confirmation",
+            "0~0~bakery-instore~cancellation-confirmation",
+            "0~0~bakery-instore~order-confirmation",
+            "0~0~bakery~ready-for-pickup",
+            "0~0~bakery-instore~ready-for-pickup",
+            "0~0~acc-instore~reminder-notification",
+            "0~0~acc-instore~cancellation-confirmation",
+            "0~0~hermes~sms-demo",
+            "0~0~ca~one-default-confirmation",
+            "0~0~photo~ready-for-pickup",
+            "0~0~RAP~return-pickup-started",
+            "0~0~RAP~return-pickup-reminder",
+            "0~0~RAP~return-initiated",
+            "0~0~RAP~refund-issued",
+            "0~0~RAP~return-attempt-call-customer-care",
+            "0~0~bulk-tools~order-related",
+            "0~0~bulk-tools~generic",
+            "0~0~hermes~bulk-comms-event-2",
+            "0~0~acc-instore~service"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        },
+        {
+          "bucketId": "1",
+          "providerName": "twilio",
+          "subAccountInfo": { "subAccountIdentifier": "us" },
+          "weightage": 1,
+          "failoverRuleId": "1000"
+        }
+      ]
+    },
+    {
+      "rule": "307",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~20~isp~isp-technician-sms",
+            "0~0~partner-services~demo-event",
+            "0~0~acc-instore~order-confirmation",
+            "0~0~hermes~uc_test_am"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "308",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "team", "values": ["massmart"] },
+        { "predicateName": "tenantId", "values": ["32", "31", "30"] },
+        { "predicateName": "verticalId", "values": ["0"] }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": {
+            "subAccountIdentifier": "infobip~walmart~massmart"
+          },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "309",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~0~cyborg~order-details-cyborg",
+            "0~0~cyborg~cyborg-voice"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": {
+            "subAccountIdentifier": "infobip~walmart~cyborg"
+          },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "310",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "eventInfo",
+          "values": [
+            "0~9001~us-payroll~consent-notification",
+            "0~9001~us-payroll~dd-bank-rejection",
+            "0~9001~us-payroll~accountchange-notification"
+          ]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": {
+            "subAccountIdentifier": "infobip~walmart~payroll"
+          },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "311",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "eventInfo",
+          "values": ["0~0~emerging-tech-experiences~creator-session"]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "312",
+      "enabled": "true",
+      "predicates": [
+        {
+          "predicateName": "eventInfo",
+          "values": ["0~0~partner-services~mfa-login-event"]
+        }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": {
+            "subAccountIdentifier": "infobip~walmart~partner-services"
+          },
+          "weightage": 1,
+          "failoverRuleId": "1001"
+        }
+      ]
+    },
+    {
+      "rule": "999",
+      "enabled": "true",
+      "predicates": [],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "imi",
+          "subAccountInfo": { "subAccountIdentifier": "glb" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "1000",
+      "enabled": "true",
+      "predicates": [],
+      "buckets": [
+        {
+          "bucketId": "1",
+          "providerName": "infobip",
+          "subAccountInfo": { "subAccountIdentifier": "infobip~walmart~glass" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "1001",
+      "enabled": "true",
+      "predicates": [],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "imi",
+          "subAccountInfo": { "subAccountIdentifier": "glb" },
+          "weightage": 1
+        }
+      ]
+    },
+    {
+      "rule": "941",
+      "enabled": "true",
+      "predicates": [
+        { "predicateName": "eventInfo", "values": ["0~0~b2b~spark-shopper"] }
+      ],
+      "buckets": [
+        {
+          "bucketId": "0",
+          "providerName": "infobip",
+          "subAccountInfo": {
+            "subAccountIdentifier": "infobip~walmart~business"
+          },
+          "weightage": 1
+        }
+      ]
+    }
+  ]
+}

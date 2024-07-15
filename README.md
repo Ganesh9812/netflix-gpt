@@ -84,3 +84,10 @@ for app.js to access src and components so in app.js use ./ and folder names and
 parallel file jsut use ./filename
 
 if inside file need to access outside, then use ../
+
+1 rem = 16px
+0.5rem = 4px
+so in tailwind anything like px-1 need to consider 0.5 rem which is 4px
+
+algorithms
+a set of well defined instructions to solve a problem
