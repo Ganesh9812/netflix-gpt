@@ -91,3 +91,15 @@ so in tailwind anything like px-1 need to consider 0.5 rem which is 4px
 
 algorithms
 a set of well defined instructions to solve a problem
+
+create react app
+configured tailwind
+header
+routing of app
+login form
+sign up form
+form validation
+useref hook
+firebase setup
+deploying our app to production
+create sign up user account
