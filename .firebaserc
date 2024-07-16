@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "netflixgpt-601e9"
-  }
+    "default": "netflixgpt-601e9",
+    "netflixpavangpt": "netflixpavangpt"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
