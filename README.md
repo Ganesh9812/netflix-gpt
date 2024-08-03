@@ -908,3 +908,7 @@ let us sign with first user
 once after the user logins, we will push the details to redux store to use in whereever we want in our app
 
 so whenever we are doing some action like sign in user or sign up user right we dispatch action right, so instead of writing multiple dispatch action like when sign out, sign in, sign up etc..., we will use utility given by firebase which is onauthstatechange, like when authentication state change happens, go to firebase documentation manage users
+
+so write the auth state change code at body or app file anything is fine
+
+so we now we are dispatching the action of adding user and passing the data to add user and this will be send to store
