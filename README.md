@@ -849,6 +849,10 @@ deploying our app to production
 create sign up user account
 Implement signin user api
 created redux store with userslice
+implement sign out
+update profile
+bugfix - sign up user displayname and profile picture update
+bugfix- if the user is not logged in redirect / browse to login page and vice-versa
 
 reate-react-app uses webpack
 
